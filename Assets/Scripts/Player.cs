@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private LayerMask counterLayerMask;
 
 
 
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
 
         isWalking = moveDir != Vector3.zero;
 
-        float rotateSpeed = 10f;
+        float rotateSpeed = 15f;
 
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
 
@@ -89,8 +90,17 @@ public class Player : MonoBehaviour
         }
 
         float interactDistance = 2f;
-        if (Physics.Raycast(transform.position, lastInteractedDirection, out RaycastHit raycastHit, interactDistance))
-            Debug.Log(raycastHit.transform);
+        if (Physics.Raycast(transform.position, lastInteractedDirection, out RaycastHit raycastHit, interactDistance, counterLayerMask))
+        {
+            if(raycastHit.transform.TryGetComponent( out ClearCounter clearCounter))
+            {
+                clearCounter.Interact();
+            }
+        }
+        else
+        {
+            Debug.Log("-");
+        }
 
     }
 
