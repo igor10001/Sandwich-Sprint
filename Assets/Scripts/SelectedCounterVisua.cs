@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedCounterVisua : MonoBehaviour
 {
-
     [SerializeField] private ClearCounter clearCounter;
     [SerializeField] private GameObject visualGameObject;
     
@@ -15,12 +15,12 @@ public class SelectedCounterVisua : MonoBehaviour
 
     private void Player_OnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
     {
-        if(e.selectedCounter == clearCounter)
+        if (e.selectedCounter == clearCounter)
         {
-            Debug.Log("visual: " + clearCounter);
             Show();
-            Debug.Log(clearCounter.gameObject.name);
         }
+        else
+            Hide();
     }
 
 

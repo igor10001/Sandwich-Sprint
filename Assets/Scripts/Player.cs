@@ -65,7 +65,10 @@ public class Player : MonoBehaviour
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-
+        if (moveDir != Vector3.zero)
+        {
+            lastInteractedDirection = moveDir;
+        }
         float moveDistance = moveSpeed * Time.deltaTime;
         float playerRadius = .7f;
         float playerHeight = 2f;
@@ -120,10 +123,7 @@ public class Player : MonoBehaviour
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
-        if(moveDir!= Vector3.zero)
-        {
-            lastInteractedDirection= moveDir;
-        }
+       
 
         float interactDistance = 2f;
         if (Physics.Raycast(transform.position, lastInteractedDirection, out RaycastHit raycastHit, interactDistance, counterLayerMask))
@@ -132,17 +132,18 @@ public class Player : MonoBehaviour
             {
                 if (clearCounter != selectedCounter)
                 {
-                    Debug.Log(selectedCounter);
                     SetSelectedCounter(clearCounter);
                 }
-                else
-                    SetSelectedCounter(null);
+
 
             }
             else
-                SetSelectedCounter(null) ;
+                SetSelectedCounter(null);
 
         }
+        else
+            SetSelectedCounter(null);
+
 
 
     }

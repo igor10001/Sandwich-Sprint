@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82951449435bb0f4ca1e87b2fb9a0ff2, type: 3}
-  m_Name: New Kitchen Object SO
+  m_Name: Cheese
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   sprite: {fileID: 0}
