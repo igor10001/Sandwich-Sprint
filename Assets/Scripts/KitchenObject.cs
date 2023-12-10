@@ -7,8 +7,7 @@ public class KitchenObject : MonoBehaviour
 {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    private ClearCounter clearCounter;
-
+    private IKitchenObjectParent kitchenObjectParent; 
     //return scriptable instance of food
     public KitchenObjectSO GetKitchenObjectSO()
     { 
@@ -16,22 +15,25 @@ public class KitchenObject : MonoBehaviour
     }
      
     //make kitchen object to know on whan conter is placed
-    public void SetClearCounter(ClearCounter clearCounter)
+    public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent)
     {
-        if(this.clearCounter != null)
+        if(this.kitchenObjectParent != null)
         {
-            this.clearCounter.ClearKitchenObject();
+            this.kitchenObjectParent.ClearKitchenObject();
         }
 
-        this.clearCounter = clearCounter;
-        clearCounter.SetKitchenObject(this);
-        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
+        this.kitchenObjectParent = kitchenObjectParent;
+        kitchenObjectParent.SetKitchenObject(this);
+
+        if (kitchenObjectParent.HasKitchenObject())
+            Debug.Log("Already has kitchenObjectParent");
+        transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
         transform.localPosition = Vector3.zero; 
     }
 
-    public ClearCounter GetClearCounter()
+    public IKitchenObjectParent GetKitchenObjectParent()
     {
-        return clearCounter;
+        return kitchenObjectParent;
     }
 
 }
