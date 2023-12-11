@@ -29,7 +29,7 @@ public class KitchenObject : MonoBehaviour
             Debug.Log("Already has kitchenObjectParent");
         transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
         transform.localPosition = Vector3.zero; 
-    }
+        }
 
     public IKitchenObjectParent GetKitchenObjectParent()
     {
