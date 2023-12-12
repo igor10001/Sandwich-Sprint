@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,14 @@ using UnityEngine;
 public class CuttingCounter : BaseCounter
 {
     [SerializeField] CuttingRecipeSO[] cuttingRecipeSOArray;
+
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+
+    public class OnProgressChangedEventArgs : EventArgs
+    {
+        public float progressNormalized;
+    }
+
 
     private int cuttingProgress;
     public override void Interact(Player player)
@@ -15,35 +24,40 @@ public class CuttingCounter : BaseCounter
             if (player.HasKitchenObject())
             {
                 //player have carrying object 
-                if(HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                 {
                     //player carrying something that can be cut 
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
+                    CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    {
+                        progressNormalized = cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+                    });
+
+                }
+                else
+                {
+                    //player not carrying anything
                 }
 
             }
             else
             {
-                //player not carrying anything
+                // have kitchen object 
+                if (player.HasKitchenObject())
+                {
+                    //Player is carrying something 
+                }
+                else
+                {
+                    //Player is not carrying anything 
+                    GetKitchenObject().SetKitchenObjectParent(player);
+                }
             }
 
         }
-        else
-        {
-            // have kitchen object 
-            if (player.HasKitchenObject())
-            {
-                //Player is carrying something 
-            }
-            else
-            {
-                //Player is not carrying anything 
-                GetKitchenObject().SetKitchenObjectParent(player);
-            }
-        }
-
-
     }
 
     public override void InteractAlternate(Player player)
@@ -51,17 +65,22 @@ public class CuttingCounter : BaseCounter
        if(HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             cuttingProgress++;
-            KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
-            //There is a kitchenObject here
-            GetKitchenObject().DestroySelf();
+            CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
+            {
+                 KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+                GetKitchenObject().DestroySelf();
+                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
 
-            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
+
+            }
+                //There is a kitchenObject here
         }
     }
 
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO inputKitchenObjectSO)
     {
-        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO)
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO);
         if (cuttingRecipeSO != null)
             return cuttingRecipeSO.output;
     
