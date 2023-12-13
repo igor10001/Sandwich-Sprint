@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82951449435bb0f4ca1e87b2fb9a0ff2, type: 3}
+  m_Name: RawEgg
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4099706030907050140, guid: 1ddaa2687a92b0d44ab84e7175e3ae1b, type: 3}
+  sprite: {fileID: 21300000, guid: bc7a886a32cc5b0478372f067fd35f35, type: 3}
+  objectName: RawEgg

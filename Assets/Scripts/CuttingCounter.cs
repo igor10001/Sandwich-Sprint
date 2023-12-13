@@ -58,7 +58,7 @@ public class CuttingCounter : BaseCounter
                 //Player is carrying something 
             }
             else
-            {
+           {
 
                 //Player is not carrying anything 
                 GetKitchenObject().SetKitchenObjectParent(player);
