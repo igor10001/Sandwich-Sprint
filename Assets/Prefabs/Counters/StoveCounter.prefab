@@ -229,6 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731944011494658583}
+  - component: {fileID: 3329450595974764623}
   m_Layer: 0
   m_Name: StoveCounter_Visual
   m_TagString: Untagged
@@ -256,6 +257,21 @@ Transform:
   - {fileID: 3865454544951181271}
   m_Father: {fileID: 1715705220162938109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3329450595974764623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731944011494658582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1000522ba1fa345ac75ab473c77821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoveCounter: {fileID: 1166045714902375082}
+  particlesGameObject: {fileID: 9073539155048343634}
+  stoveOnGameObject: {fileID: 3865454544951181275}
 --- !u!1 &3865454544951181275
 GameObject:
   m_ObjectHideFlags: 0
@@ -10468,6 +10484,8 @@ MonoBehaviour:
   counterTopPoint: {fileID: 2627554513514641961}
   fryingRecipeSOArray:
   - {fileID: 11400000, guid: 88ef21b38186fb04fadd7dbb30e2638a, type: 2}
+  burningRecipeSOArray:
+  - {fileID: 11400000, guid: 0478ea34d97b16549a1f84d83d17bfba, type: 2}
 --- !u!4 &2627554513514641961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1224692978177853616, guid: a6cb544a61ce4584fbc3e23e45978c97, type: 3}
