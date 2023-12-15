@@ -193,9 +193,17 @@ PrefabInstance:
       propertyPath: cuttingCounter
       value: 
       objectReference: {fileID: 6675733509784333292}
+    - target: {fileID: 5116423097582510060, guid: d74d55581c308ea439ce91baa0d63216, type: 3}
+      propertyPath: hasProgressGameObject
+      value: 
+      objectReference: {fileID: 251812315716997522}
     - target: {fileID: 7612970692129275303, guid: d74d55581c308ea439ce91baa0d63216, type: 3}
       propertyPath: m_Name
       value: ProgressBarUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8863576827727981390, guid: d74d55581c308ea439ce91baa0d63216, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
