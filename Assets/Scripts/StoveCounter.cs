@@ -160,7 +160,7 @@ public class StoveCounter : BaseCounter, IHasProgress
             {
 
                 //Player is not carrying anything 
-                GetKitchenObject().SetKitchenObjectParent(player);
+                    GetKitchenObject().SetKitchenObjectParent(player);
                
                 state = State.Idle;
 
@@ -196,6 +196,7 @@ public class StoveCounter : BaseCounter, IHasProgress
             return null;
         }
     }
+ 
 
     private FryingRecipeSO GetFryingRecipeSOWithInput(KitchenObjectSO inputKitchenObjectSO)
     {

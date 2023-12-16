@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: rawEgg - friedEgg
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 61cb4601fe4519e40968b02b9fb12daa, type: 2}
+  middle: {fileID: 11400000, guid: 06a01010d2f614c40a76a1d51d5dedf5, type: 2}
   output: {fileID: 11400000, guid: 8f38f71047c65f445b05d0e99b0a80b2, type: 2}
   fryingTimerMax: 3
