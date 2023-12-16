@@ -15,7 +15,7 @@ public class ProgressBarUI : MonoBehaviour
         hasProgress = hasProgressGameObject.GetComponent<IHasProgress>();
         if(hasProgress == null)
         {
-            Debug.Log("GameObject " + hasProgressGameObject + " does not have  a componentn  that implements IHasProgress");
+            Debug.LogError("GameObject " + hasProgressGameObject + " does not have  a componentn  that implements IHasProgress");
         }
        hasProgress.OnProgressChanged += HasProgress_OnProgressChanged;
        Hide();
