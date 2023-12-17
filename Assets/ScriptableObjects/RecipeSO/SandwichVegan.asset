@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d24ab12ca512442b81dc0cd7fdca8e, type: 3}
+  m_Name: SandwichVegan
+  m_EditorClassIdentifier: 
+  RecipeName: SandwichVegan
+  kitchenObjectSOList:
+  - {fileID: 11400000, guid: 1bc9ba7bb25dd694f8d2c331b98c1c23, type: 2}
+  - {fileID: 11400000, guid: 16cf31d8e471c8b449896ecfde6d9443, type: 2}
+  - {fileID: 11400000, guid: 4cb82af86ed710644b53f196f49d1908, type: 2}
+  - {fileID: 11400000, guid: 5f5428316534bcc4fb0603997efa3786, type: 2}
