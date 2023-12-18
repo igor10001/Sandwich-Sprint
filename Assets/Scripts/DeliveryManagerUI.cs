@@ -22,6 +22,7 @@ public class DeliveryManagerUI : MonoBehaviour
 
     private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e)
     {
+        Debug.Log("RecipeCompleted");
         UpdateVisual();
     }
 
@@ -43,7 +44,7 @@ public class DeliveryManagerUI : MonoBehaviour
             {
                 Transform recipeTransform = Instantiate(recipeTemplate, container);
                 recipeTransform.gameObject.SetActive(true);
-            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
+                  recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
             }
         }
 }
