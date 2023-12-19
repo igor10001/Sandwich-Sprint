@@ -91,4 +91,5 @@ public class KitchenGameManagerr : MonoBehaviour
     {
         return 1 - (gamePlayingTimer / gamePlayingTimeMax);
     }
+
 }
