@@ -92,4 +92,8 @@ public class KitchenGameManagerr : MonoBehaviour
         return 1 - (gamePlayingTimer / gamePlayingTimeMax);
     }
 
+    public void IncreaseGameTimer()
+    {
+        gamePlayingTimeMax += 5f;
+    }
 }

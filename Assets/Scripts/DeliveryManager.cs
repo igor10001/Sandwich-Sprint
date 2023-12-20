@@ -86,6 +86,8 @@ public class DeliveryManager : MonoBehaviour
 
                     waitingRecipeSOList.RemoveAt(i);
                     succesfulRecipesAmount++;
+                    Debug.Log("Recipe completed");
+                    KitchenGameManagerr.Instance.IncreaseGameTimer();
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnRecipeSucces?.Invoke(this, EventArgs.Empty);
                     return;
