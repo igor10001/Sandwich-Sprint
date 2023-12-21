@@ -11093,7 +11093,7 @@ PrefabInstance:
       addedObject: {fileID: 1335482090130632201}
     - targetCorrespondingSourceObject: {fileID: 7612970692129275303, guid: d74d55581c308ea439ce91baa0d63216, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3834176144959074151}
+      addedObject: {fileID: 8795764721536199634}
   m_SourcePrefab: {fileID: 100100000, guid: d74d55581c308ea439ce91baa0d63216, type: 3}
 --- !u!1 &568343730416040634 stripped
 GameObject:
@@ -11121,7 +11121,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3834176144959074151
+--- !u!114 &8795764721536199634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11130,7 +11130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 568343730416040634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb7cc2c222459243ac3d0a52f6e401b, type: 3}
+  m_Script: {fileID: 11500000, guid: c8bcddb45325e874b85cfd9a85922caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stoveCounter: {fileID: 1166045714902375082}
