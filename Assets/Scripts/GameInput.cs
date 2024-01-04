@@ -22,7 +22,7 @@ public class GameInput : MonoBehaviour
         playerInputAction.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInput = GetComponent<PlayerInput>();
         var index = playerInput.playerIndex;
-
+        //there we need to set up logic to determinate what player handle input and when to spawn 
         
     }
 
