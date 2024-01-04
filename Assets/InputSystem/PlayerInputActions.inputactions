@@ -91,6 +91,28 @@
                 },
                 {
                     "name": "",
+                    "id": "52e69c15-0365-4bf5-9705-88019d960876",
+                    "path": "<NPad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "682469e9-887b-4a2a-8d8c-fc4ea5b0697e",
+                    "path": "<SwitchProControllerHID>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7c6db42e-2935-4a1c-aab3-897c05034726",
                     "path": "<Keyboard>/e",
                     "interactions": "",
