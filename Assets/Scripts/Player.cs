@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,16 +7,19 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+    
+
 public class Player : MonoBehaviour, IKitchenObjectParent
 {
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private GameInput gameInput;
+    //[SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
+    [SerializeField] private int playerIndex = 0;
 
+    private Vector2 inputVector;
 
-
-    public static Player Instance { get; private set; }
+   //public static Player Instance { get; private set; }
 
     public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
@@ -33,18 +37,18 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private KitchenObject kitchenObject;
 
     private void Awake()
-    {
+    {/*
         if(Instance != null) 
         {
             Debug.LogError("there s more than one Player instance");
         }
-        Instance = this;
+        Instance = this;*/
     }
 
     private void Start()
     {
-        gameInput.OnInteractAction += GameInput_OnInteractAction;
-        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+        GameInput.instance.OnInteractAction += GameInput_OnInteractAction;
+        GameInput.instance.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
@@ -81,9 +85,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
+       // Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Debug.Log("input Vector " + inputVector);
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        Debug.Log("moveDir " + moveDir);
         if (moveDir != Vector3.zero)
         {
             lastInteractedDirection = moveDir;
@@ -139,7 +144,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
 
 
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+      //  Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
@@ -207,4 +212,16 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         return kitchenObject != null;
     }
+
+    public void SetInputVector(Vector2 inputVector)
+    {
+        this.inputVector = inputVector.normalized;
+
+    }
+
+    public int GetPlayerIndex()
+    {
+        return playerIndex;
+    }
+
 }
